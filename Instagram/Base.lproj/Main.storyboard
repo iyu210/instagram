@@ -110,12 +110,12 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="dti-V6-Wei"/>
                     <connections>
-                        <outlet property="tableView" destination="GmL-C1-qvd" id="oM5-9U-w5p"/>
+                        <outlet property="tableView" destination="GmL-C1-qvd" id="l21-a0-iTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wgH-ko-cAa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-771" y="793"/>
+            <point key="canvasLocation" x="139.13043478260872" y="792.85714285714278"/>
         </scene>
         <!--投稿-->
         <scene sceneID="sBn-5f-zZy">
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cab-yr-rpE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11.594202898550726" y="792.85714285714278"/>
+            <point key="canvasLocation" x="921.73913043478262" y="792.85714285714278"/>
         </scene>
         <!--設定-->
         <scene sceneID="3WW-xL-wN9">
@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mlh-eq-f34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="793"/>
+            <point key="canvasLocation" x="1671.0144927536232" y="792.85714285714278"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="7vl-ZL-dZj">

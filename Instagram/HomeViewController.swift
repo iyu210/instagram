@@ -57,6 +57,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         print("DEBUG_PRINT: viewWillDisappear")
         // listenerを削除して監視を停止する
         listener?.remove()
+        
     }
     
     
@@ -72,8 +73,38 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セル内のボタンのアクションをソースコードで設定する
         cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
         
+        cell.addCommentButton.addTarget(self, action:#selector(leaveComment(_:forEvent:)), for: .touchUpInside)
+        
         return cell
     }
+    
+    //セル内の「投稿」ボタンがタップされた時に呼ばれるメソッド
+    @objc func leaveComment(_ sender: UIButton, forEvent event: UIEvent){
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        // 更新データを作成する
+        var updateValue: FieldValue
+        let name = Auth.auth().currentUser?.displayName
+        
+        let cell = tableView.cellForRow(at: indexPath!) as! PostTableViewCell
+        updateValue = FieldValue.arrayUnion(["\(name!): " + cell.commentTextField.text!])
+        let postRef = Firestore.firestore().collection(Const.PostPath).document(postData.id)
+        
+        postRef.updateData(["comment": updateValue])
+        
+        // TableViewの表示を更新する
+        self.tableView.reloadData()
+        
+        
+    }
+    
     
     // セル内のボタンがタップされた時に呼ばれるメソッド
     @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
